@@ -2,6 +2,14 @@ import { TIMEOUT_SEC } from './config.js';
 
 // functions that we use a lot throughout the project
 
+function timeout(s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error(`Request took too long! Timeout after ${s} second`));
+    }, s * 1000);
+  });
+}
+
 export async function AJAX(url, uploadData = undefined) {
   try {
     const fetchPro = uploadData
@@ -57,12 +65,4 @@ export async function AJAX(url, uploadData = undefined) {
 //   } catch (error) {
 //     throw error;
 //   }
-// }
-
-// function timeout(s) {
-//   return new Promise(function (_, reject) {
-//     setTimeout(function () {
-//       reject(new Error(`Request took too long! Timeout after ${s} second`));
-//     }, s * 1000);
-//   });
 // }
