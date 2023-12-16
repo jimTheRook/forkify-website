@@ -1,5 +1,5 @@
 import { API_URL, RESULTS_PER_PAGE, API_KEY } from './config.js';
-import { AJAX } from '../../../final/src/js/helpers.js';
+import { AJAX } from './helpers.js';
 
 export const state = {
   recipe: {},
